@@ -10,7 +10,9 @@
     "test:coverage": "npm test -- --coverage",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "dev": "parcel src/index.html"
+    "dev": "parcel src/index.html",
+    "build": "parcel build --public-url ./dist/ src/index.html",
+    "start": "npm run build && babel-node server.js"
   },
   "repository": {
     "type": "git",
@@ -43,6 +45,8 @@
   },
   "dependencies": {
     "@reach/router": "^1.1.1",
+    "babel-cli": "^6.26.0",
+    "express": "^4.16.3",
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
     "petfinder-client": "^0.0.3",

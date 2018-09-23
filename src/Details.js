@@ -5,15 +5,7 @@ import Carousel from './Carousel';
 import Modal from './Modal';
 import _ from 'lodash';
 import moment from 'moment';
-import Loadable from 'react-loadable';
-
-console.log( moment, _ );
-
-const loading = () => <h1>Loading content...</h1>;
-const LoadableContent = Loadable( {
-	loader: () => import( './AdoptModalContent'),
-	loading,
-} );
+import AdoptModalContent from './AdoptModalContent';
 
 const petfinder = pf({
   key: process.env.API_KEY,
@@ -77,7 +69,7 @@ class Details extends React.Component {
           <p>{description}</p>
           {showModal ? (
             <Modal>
-                <LoadableContent name={ name } onClick={ this.toggleModal } />
+                <AdoptModalContent name={ name } onClick={ this.toggleModal } />
             </Modal>
           ) : null}
         </div>
